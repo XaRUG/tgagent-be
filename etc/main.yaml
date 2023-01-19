@@ -23,7 +23,7 @@ paths:
 
 # Save/load settings from helper program
 settings:
-  enabled: true
+  enabled: false
   database: mysql://xadmin:netargos12345@127.0.0.1:3306/apca_dev
 
 # Output
@@ -34,5 +34,5 @@ output:
 control:
   enabled: true
   listen-address: 127.0.0.1
-  listen-port: 3030 
+  listen-port: 11083
   allow-cors: false

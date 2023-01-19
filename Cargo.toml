@@ -1,5 +1,5 @@
 [package]
-name = "xa-rust"
+name = "tgagent-rust"
 version = "0.1.0"
 edition = "2021"
 
