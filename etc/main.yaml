@@ -34,5 +34,5 @@ output:
 control:
   enabled: true
   listen-address: 127.0.0.1
-  listen-port: 11083
+  listen-port: 10183
   allow-cors: false
