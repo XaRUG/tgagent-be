@@ -13,7 +13,7 @@ pub fn new_server(address: &String, port: u16, allow_cors: bool) -> Result<Serve
     });
     io.add_method("version", |params: Params| {
         let message = json!({
-            "mgessage": "OK",
+            "message": "OK",
             "params": params
         });
 	    Ok(message)
