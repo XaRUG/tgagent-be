@@ -19,11 +19,17 @@ pub fn new_server(address: &String, port: u16, allow_cors: bool) -> Result<Serve
 	    Ok(message)
     });
 
-    let server = ServerBuilder::new(io)
-        .cors(DomainsValidation::AllowOnly(vec![AccessControlAllowOrigin::Null]))
+    let serverbuilder = if allow_cors {
+        ServerBuilder::new(io)
+            .cors(DomainsValidation::Disabled)
+    } else {
+        ServerBuilder::new(io)
+            .cors(DomainsValidation::AllowOnly(vec![AccessControlAllowOrigin::Null]))
+            .allow_only_bind_host()
+    };
+
+    Ok(serverbuilder
         .rest_api(RestApi::Secure)
         .start_http(&format!("{address}:{port}").parse()?)
-        .context("Failed to launch rpc server")?;
-
-    Ok(server)
+        .context("Failed to launch rpc server")?)
 }
